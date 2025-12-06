@@ -6,75 +6,88 @@ struct ContentView: View {
     
     var body: some View{
         ZStack{
-            Color(red:18/255, green: 18/255,blue: 20/255)
+            Color(red:18/255, green: 18/255, blue: 20/255)
                 .ignoresSafeArea()
-            VStack(spacing: 20){
-                
-                Text("Welcome back!")
-                    .font(.title)
-                    .fontWeight(.semibold)
-                    .foregroundColor(.white)
-                Text("Please sign in to your account.")
-                    .font(.subheadline)
-                    .foregroundColor(.gray)
-                
-                
-                VStack(spacing: 16){
+            VStack(spacing: 50){
+                VStack(spacing: 18) {
+                    Text("Welcome Back!")
+                        .font(.system(size: 24))
+                        .fontWeight(.bold)
+                        .foregroundColor(.white)
+                    Text("Please sign in to your account.")
+                        .font(.system(size: 16))
+                        .foregroundStyle(Color.gray)
+                }
+                VStack(spacing: 13){
                     TextField("Username", text:$username)
-                        .padding()
-                        .background(Color(red:32/255, green: 34/255, blue: 40/255))
+                        .padding(.vertical, 27)
                         .foregroundColor(.white)
-                        .cornerRadius(16)
-                    SecureField("Password", text:$password)
-                        .padding()
-                        .background(Color(red:32/255, green: 34/255, blue: 40/255))
-                        .foregroundColor(.white)
-                        .cornerRadius(16)
+                        .background(Color(red: 32/255, green: 32/255, blue: 40/255))
+                        .cornerRadius(18)
+                    SecureField("Password",
+                                text: $password)
+                    .padding(.vertical, 27)
+                    .foregroundColor(.white)
+                    .background(Color(red:32/255, green: 32/255, blue: 40/255))
+                    .cornerRadius(18)
+                    HStack{
+                        Spacer()
+                        Button("Forgot Password?"){
+                        }
+                        .font(.caption)
+                        .foregroundColor(.gray)
+                        }
                 }
-                HStack {
-                    Spacer()
-                    Button("Forgot Password?"){
-                        
+                VStack(spacing: 40){
+                    VStack(spacing: 13){
+                        Button(action:{}){
+                            Text("Sign in")
+                                .padding(.vertical, 27)
+                                .frame(maxWidth: .infinity)
+                                .font(.subheadline)
+                        }
+                        .foregroundColor(.white)
+                        .background(Color(red:73/255, green: 84/255, blue: 242/255))
+                        .cornerRadius(18)
+                        Button(action:{}){
+                            Text("Sign in with Google")
+                                .padding(.vertical, 27)
+                                .frame(maxWidth:
+                                        .infinity)
+                                .font(.subheadline)
+                                .foregroundStyle(Color.black)
+                        }
+                        .background(Color.white)
+                        .cornerRadius(18)
+                        Button(action:{}){
+                            Text("Sign in with Facebook")
+                                .padding(.vertical, 27)
+                                .frame(maxWidth: .infinity)
+                                .font(.subheadline)
+                                .foregroundStyle(Color.white)
+                        }
+                        .background(Color(red:62/255, green:68/255, blue: 148/255))
+                        .cornerRadius(18)
                     }
-                    .font(.footnote)
-                    .frame(maxWidth: .infinity)
+                    HStack{
+                    Text("Don't have an Account?")
+                            .foregroundStyle(Color.white)
+                            .font(.subheadline)
+                        Button("Sign up"){
+                            
+                        }
+                        .font(.subheadline)
+                        .foregroundStyle(Color(red:103/255, green:112/255, blue:230/255))
+                        }
+                  
+                    
                 }
-                Button(action:{})
-                {
-                    Text("Sign in")
-                        .fontWeight(.semibold)
-                        .frame(maxWidth: .infinity)
-                        .padding()
+
                 }
-                .background(Color.indigo)
-                .foregroundColor(.white)
-                .cornerRadius(24)
-                Button(action:{})
-                {
-                    Text("Sign in with Google")
-                        .fontWeight(.semibold)
-                        .frame(maxWidth: .infinity)
-                        .padding()
-                }
-                .background(Color.white)
-                .foregroundColor(.black)
-                .cornerRadius(24)
-                Button(action:{})
-                {
-                    Text("Sign in with FaceBook")
-                        .fontWeight(.semibold)
-                        .frame(maxWidth: .infinity)
-                        .padding()
-                }
-                .background(Color.blue)
-                .foregroundColor(.white)
-                .cornerRadius(24)
+            .padding()
             }
-            .padding(.horizontal, 4)
         }
     }
-}
-
-#Preview {
+#Preview{
     ContentView()
 }
